@@ -2,7 +2,7 @@ opemapi : "3.0.0"
 info: 
     title: Shopping API
     version: "1.0"
- paths:
+paths:
     /products:
       description: The products catalog
       get: 
@@ -10,10 +10,42 @@ info:
         description: |
           search for products in catalog using
           free query parameter.
-        response: "200":
-          description: |
-            Products matching free query parameter
-        parameters:
+        parameter: [...]
+        response: 
+              "200":
+               description: |
+                   Products matching free query parameter
+              content:
+                   application/json :
+                     schema:
+                       type: array
+                       description: Array of Products
+                       items:
+                         type: object
+                         description: A product
+                         required: 
+                           - reference
+                           - name
+                           - price
+                           - supplier
+                         properties:
+                           reference:
+                            description: Unique ID Identifying a product
+                            type: string
+                           name:
+                            type: string
+                           supplier:
+                             type: object
+                             description: Product's supplier
+                             required:
+                              - reference
+                              - name
+                             properties:
+                               reference: 
+                                 type: string
+                               name:
+                                 type: string                        
+        parameters: 
           - name: free-query
             description: |
               A product's name, reference, or 
