@@ -1,0 +1,31 @@
+opemapi : "3.0.0"
+info: 
+    title: Shopping API
+    version: "1.0"
+ paths:
+    /products:
+      description: The products catalog
+      get: 
+        summary: Search for products
+        description: |
+          search for products in catalog using
+          free query parameter.
+        response: "200":
+          description: |
+            Products matching free query parameter
+        parameters:
+          - name: free-query
+            description: |
+              A product's name, reference, or 
+              partial description
+            in: query
+            required: false
+            schema:
+              type: string 
+      post: 
+        summary: Add products
+        description: |
+          Add product to catalog
+        response: "200":
+          description : |
+            product addded to the catalog
