@@ -1,4 +1,4 @@
-# Designining Interactions
+# Designing Interactions
 
 * Request straightforward inputs.
 
